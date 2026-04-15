@@ -11,7 +11,7 @@ from configs.registry import get_preset, list_presets
 from core.checkpoint import CheckpointInspection, CheckpointManager
 from core.types import GenerationRequest
 from inference.generator import PixelGenerator
-from tokenizer.manager import ensure_tokenizer
+from tokenizer.manager import ensure_tokenizer, PixelTokenizer
 from training.bootstrap import ensure_bootstrap_corpus
 
 try:
@@ -50,22 +50,36 @@ def _is_hf_model_id(model_str: str) -> bool:
     return len(parts) in (2, 3)
 
 
-def _download_hf_model(hf_model_id: str) -> str:
-    """Download a model from HuggingFace Hub and return local checkpoint path."""
+def _download_hf_model(hf_model_id: str) -> tuple[str, str]:
+    """Download model checkpoint and tokenizer from HuggingFace Hub.
+    
+    Returns: (checkpoint_path, tokenizer_path)
+    """
     if hf_hub_download is None:
         raise ImportError(
             f"HuggingFace Hub model ID detected ({hf_model_id}), but huggingface_hub is not installed. "
             "Install it with: pip install huggingface_hub"
         )
     
-    print(f"📥 Downloading model from HuggingFace Hub: {hf_model_id}")
+    print(f"📥 Downloading PIXEL model from HuggingFace Hub: {hf_model_id}")
+    
+    # Download checkpoint
     checkpoint_path = hf_hub_download(
         repo_id=hf_model_id,
         filename="latest.pt",
         repo_type="model"
     )
-    print(f"✓ Model downloaded to: {checkpoint_path}")
-    return checkpoint_path
+    print(f"  ✓ Checkpoint: {checkpoint_path}")
+    
+    # Download tokenizer
+    tokenizer_path = hf_hub_download(
+        repo_id=hf_model_id,
+        filename="pixel_tokenizer.model",
+        repo_type="model"
+    )
+    print(f"  ✓ Tokenizer: {tokenizer_path}")
+    
+    return str(checkpoint_path), str(tokenizer_path)
 
 
 def _latest_checkpoint() -> str | None:
@@ -92,14 +106,22 @@ def main() -> None:
     
     # Handle HuggingFace Hub model IDs
     checkpoint = args.model
+    hf_tokenizer_path = None
     if checkpoint and _is_hf_model_id(checkpoint):
-        checkpoint = _download_hf_model(checkpoint)
+        checkpoint, hf_tokenizer_path = _download_hf_model(checkpoint)
     
     checkpoint = checkpoint or _latest_checkpoint()
     checkpoint_info = _inspect_checkpoint(checkpoint)
     data_path = str(ensure_bootstrap_corpus())
     tokenizer_vocab = checkpoint_info.model_config.vocab_size if checkpoint_info is not None else min(model_config.vocab_size, 4096)
-    tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=tokenizer_vocab)
+    
+    # Use HuggingFace tokenizer if available, otherwise ensure local one
+    if hf_tokenizer_path:
+        tokenizer = PixelTokenizer.load(hf_tokenizer_path)
+        print(f"Using tokenizer from HuggingFace: vocab_size={tokenizer.vocab_size}")
+    else:
+        tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=tokenizer_vocab)
+    
     if checkpoint_info is None:
         model_config.vocab_size = tokenizer.vocab_size
     generator = PixelGenerator(
