@@ -77,26 +77,62 @@ class PixelGenerator:
         """Yield generated text chunks token by token."""
         prompt = clean_prompt(request.prompt)
         input_ids = self.tokenizer.encode(prompt, add_bos=True)
+        
+        # Debug: Check encoding
+        if not input_ids:
+            print(f"⚠️  Warning: Prompt encoded to empty token list. Prompt: {prompt[:50]}...")
+            return
+        
         generated = input_ids[:]
         past = None
+        
         with torch.inference_mode():
-            for _ in range(request.max_tokens):
+            for step in range(request.max_tokens):
                 window = generated[-self.model_config.context_length :]
                 tensor_ids = torch.tensor([window if past is None else [window[-1]]], dtype=torch.long, device=self.device)
-                output = self.model(tensor_ids, past_key_values=past)
+                
+                try:
+                    output = self.model(tensor_ids, past_key_values=past)
+                except Exception as e:
+                    print(f"⚠️  Error during model forward pass: {e}")
+                    break
+                
                 past = output.past_key_values
                 next_token = self._sample_next(output.logits[:, -1, :], request.temperature, request.top_p)
+                
+                # Debug: Check if EOS on first token
+                if step == 0 and next_token == self.tokenizer.eos_id:
+                    print(f"⚠️  Warning: EOS token generated immediately. Check tokenizer/model compatibility.")
+                
                 if next_token == self.tokenizer.eos_id:
+                    if step == 0:
+                        print(f"ℹ️  Generation stopped at step 0 (EOS token)")
                     break
+                
                 generated.append(next_token)
-                yield self.tokenizer.decode([next_token])
+                decoded = self.tokenizer.decode([next_token])
+                
+                if decoded:  # Only yield if not empty
+                    yield decoded
 
     def _sample_next(self, logits: torch.Tensor, temperature: float, top_p: float) -> int:
         """Sample one token from the model logits."""
+        # Safety checks
+        if torch.isnan(logits).any() or torch.isinf(logits).any():
+            print(f"⚠️  Warning: Invalid logits detected (NaN or Inf). Using argmax instead of sampling.")
+            return int(torch.argmax(logits, dim=-1).item())
+        
         if temperature <= 0.0:
             return int(torch.argmax(logits, dim=-1).item())
+        
         scaled = logits / temperature
         probs = torch.softmax(scaled, dim=-1)
+        
+        # Safety: Check for invalid probabilities
+        if torch.isnan(probs).any() or probs.sum() <= 0:
+            print(f"⚠️  Warning: Invalid probabilities after softmax. Using argmax.")
+            return int(torch.argmax(logits, dim=-1).item())
+        
         sorted_probs, sorted_indices = torch.sort(probs, descending=True)
         cumulative = torch.cumsum(sorted_probs, dim=-1)
         mask = cumulative > top_p
@@ -104,6 +140,12 @@ class PixelGenerator:
         mask[..., 0] = False
         sorted_probs = sorted_probs.masked_fill(mask, 0.0)
         sorted_probs = sorted_probs / sorted_probs.sum(dim=-1, keepdim=True).clamp_min(1.0e-8)
+        
+        # Safety: Ensure we have valid probabilities to sample from
+        if sorted_probs.sum() <= 0:
+            print(f"⚠️  Warning: No valid probabilities after top-p filtering. Using argmax.")
+            return int(torch.argmax(logits, dim=-1).item())
+        
         next_sorted = torch.multinomial(sorted_probs, num_samples=1)
         next_token = sorted_indices.gather(-1, next_sorted)
         return int(next_token.item())

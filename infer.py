@@ -120,6 +120,8 @@ def main() -> None:
     payload.update(generator.describe())
     if not response.used_checkpoint:
         payload["warning"] = "No trained checkpoint was loaded. Output comes from randomly initialized weights."
+    elif response.tokens_generated == 0:
+        payload["warning"] = "No tokens were generated. Check prompt encoding, tokenizer compatibility, or model state."
     elif generator.config_source == "checkpoint":
         payload["note"] = (
             f"Checkpoint metadata overrode the requested preset '{args.size}'."
