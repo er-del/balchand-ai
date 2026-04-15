@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Runtime and temporary
+*.log
+*.tmp
+*.bak
+*.cache
+
+# Generated artifacts - PIXEL
+checkpoints/
+artifacts/
+.pytest_tmp/
+runs/
+wandb/
+logs/
+
+# Tokenizer generated files
+tokenizer/*.model
+tokenizer/*.vocab
+tokenizer/*.bak
+tokenizer/bootstrap_corpus.txt
+
+# Large model files (commit configs, not weights)
+*.pt
+!configs/*.pt
+
+# Alternative cache locations
+.cache/
+.wandb/

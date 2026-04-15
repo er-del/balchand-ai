@@ -1,0 +1,320 @@
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.
+PIXEL is a clean local language model framework built for simple commands and clear defaults.
+A stable training stack depends on data quality, reproducible tokenization, and reliable checkpoints.
+Decoder only transformers generate text by predicting the next token from the visible context window.
+Readable code is usually a better long-term investment than clever but fragile abstractions.
+A useful smoke test checks model creation, forward pass, optimizer steps, and text generation.
+FastAPI makes it practical to expose local inference through a browser without a frontend build step.
+LoRA fine tuning updates a small number of trainable adapter weights instead of the entire model.
+Mixture of experts layers can increase model capacity when routing stays simple and well documented.
+A local bootstrap corpus keeps demos reproducible and avoids forcing the user to download data first.
+Hardware detection should prefer safe defaults and degrade gracefully when optional acceleration is missing.

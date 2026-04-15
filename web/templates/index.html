@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PIXEL</title>
+  <style>
+    :root {
+      --bg: #0a1017;
+      --panel: #121b25;
+      --panel-2: #182433;
+      --border: #2a3a4f;
+      --text: #f4f7fb;
+      --muted: #97a8bb;
+      --accent: #45d483;
+      --accent-2: #9ce7ba;
+      --danger: #ff6b6b;
+      --font: "Segoe UI", "Helvetica Neue", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #122133, var(--bg) 55%);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px;
+      display: grid;
+      gap: 20px;
+    }
+    .hero {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(69,212,131,0.16), rgba(24,36,51,0.9));
+    }
+    h1 { margin: 0 0 8px; font-size: 2rem; }
+    p { margin: 0; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 20px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+    }
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      padding: 12px;
+      font: inherit;
+    }
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .stack { display: grid; gap: 14px; }
+    button {
+      background: linear-gradient(135deg, var(--accent), #2ca665);
+      color: #08130d;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 320px;
+      background: #09111a;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .meta.stack {
+      display: grid;
+      gap: 6px;
+      justify-content: stretch;
+    }
+    .info-grid {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .info-card {
+      background: #09111a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .info-card strong {
+      display: block;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .info-card span {
+      color: var(--text);
+      word-break: break-word;
+    }
+    .hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>PIXEL</h1>
+      <p>Progressive Intelligent eXecution and Efficient Learning. Local generation with a smaller, inference-first browser surface.</p>
+    </section>
+    <section class="grid">
+      <div class="panel stack">
+        <div>
+          <label for="size">Preset</label>
+          <select id="size">
+            {% for size in sizes %}
+            <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+          </select>
+          <p class="hint">This preset is only used when no checkpoint is active.</p>
+        </div>
+        <div>
+          <label for="mode">Mode</label>
+          <select id="mode">
+            {% for mode in modes %}
+            <option value="{{ mode }}">{{ mode }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="row">
+          <div>
+            <label for="maxTokens">Max Tokens</label>
+            <input id="maxTokens" type="number" value="96" min="1">
+          </div>
+          <div>
+            <label for="temperature">Temperature</label>
+            <input id="temperature" type="number" value="0.8" step="0.1" min="0">
+          </div>
+        </div>
+        <div>
+          <label for="prompt">Prompt</label>
+          <textarea id="prompt">Explain why a clean local LLM stack needs typed configs, reliable checkpoints, and good defaults.</textarea>
+        </div>
+        <div class="row">
+          <button id="generateBtn">Generate</button>
+          <button id="streamBtn" class="secondary">Stream</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="meta stack">
+          <span id="status">Ready</span>
+          <span id="health">Checking health...</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-card">
+            <strong>Active Checkpoint</strong>
+            <span id="checkpointPath">Checking checkpoints...</span>
+          </div>
+          <div class="info-card">
+            <strong>Resolved Model</strong>
+            <span id="resolvedModel">Waiting for checkpoint metadata...</span>
+          </div>
+          <div class="info-card">
+            <strong>Config Source</strong>
+            <span id="configSource">Unknown</span>
+          </div>
+        </div>
+        <pre id="output"></pre>
+      </div>
+    </section>
+  </main>
+  <script>
+    const output = document.getElementById("output");
+    const statusNode = document.getElementById("status");
+    const healthNode = document.getElementById("health");
+    const checkpointNode = document.getElementById("checkpointPath");
+    const resolvedModelNode = document.getElementById("resolvedModel");
+    const configSourceNode = document.getElementById("configSource");
+
+    async function loadHealth() {
+      const response = await fetch("/api/health");
+      const payload = await response.json();
+      healthNode.textContent = `${payload.hardware.device} / ${payload.hardware.gpu_count} gpu(s)`;
+    }
+
+    function renderRuntimeInfo(details, selectedSize) {
+      const model = details?.resolved_model || details?.model || null;
+      const checkpointPath = details?.checkpoint_path || details?.path || "none";
+      const configSource = details?.config_source || (checkpointPath !== "none" ? "checkpoint" : `preset (${selectedSize})`);
+      checkpointNode.textContent = checkpointPath;
+      configSourceNode.textContent = configSource === "checkpoint"
+        ? `checkpoint override active`
+        : `preset fallback (${selectedSize})`;
+      if (!model) {
+        resolvedModelNode.textContent = `Preset ${selectedSize} will be used if no checkpoint is available.`;
+        return;
+      }
+      resolvedModelNode.textContent =
+        `${model.name} | layers=${model.num_layers} | hidden=${model.hidden_size} | vocab=${model.vocab_size}`;
+    }
+
+    async function loadModels() {
+      const response = await fetch("/api/models");
+      const payload = await response.json();
+      renderRuntimeInfo(payload.latest_details, document.getElementById("size").value);
+    }
+
+    async function readJson(response) {
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.detail || "Request failed.");
+      }
+      return payload;
+    }
+
+    function buildPayload() {
+      return {
+        prompt: document.getElementById("prompt").value,
+        size: document.getElementById("size").value,
+        mode: document.getElementById("mode").value,
+        max_tokens: Number(document.getElementById("maxTokens").value),
+        temperature: Number(document.getElementById("temperature").value),
+        top_p: 0.95
+      };
+    }
+
+    async function generate() {
+      statusNode.textContent = "Generating";
+      output.textContent = "";
+      try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload())
+        });
+        const payload = await readJson(response);
+        renderRuntimeInfo(payload, document.getElementById("size").value);
+        output.textContent = JSON.stringify(payload, null, 2);
+        statusNode.textContent = "Done";
+      } catch (error) {
+        statusNode.textContent = "Error";
+        output.textContent = String(error);
+      }
+    }
+
+    async function streamGenerate() {
+      statusNode.textContent = "Streaming";
+      output.textContent = "";
+      try {
+        await loadModels();
+        const response = await fetch("/api/generate/stream", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload())
+        });
+        if (!response.ok) {
+          const payload = await response.json();
+          throw new Error(payload.detail || "Streaming request failed.");
+        }
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          output.textContent += decoder.decode(value, { stream: true });
+        }
+        statusNode.textContent = "Done";
+      } catch (error) {
+        statusNode.textContent = "Error";
+        output.textContent = String(error);
+      }
+    }
+
+    document.getElementById("generateBtn").addEventListener("click", generate);
+    document.getElementById("streamBtn").addEventListener("click", streamGenerate);
+    document.getElementById("size").addEventListener("change", () => {
+      loadModels().catch(() => {
+        checkpointNode.textContent = "Checkpoint metadata unavailable";
+      });
+    });
+    loadHealth().catch((error) => {
+      healthNode.textContent = "Health unavailable";
+      output.textContent = String(error);
+    });
+    loadModels().catch((error) => {
+      checkpointNode.textContent = "Checkpoint metadata unavailable";
+      output.textContent = String(error);
+    });
+  </script>
+</body>
+</html>
