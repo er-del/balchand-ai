@@ -133,11 +133,31 @@ def main() -> None:
             tokenizer = hf_tokenizer_temp
             print(f"✓ Using HuggingFace tokenizer (vocab match: {hf_tokenizer_temp.vocab_size})")
         else:
-            # Mismatch - need to generate proper tokenizer
-            print(f"⚠️  HF tokenizer vocab ({hf_tokenizer_temp.vocab_size}) != checkpoint requires ({required_vocab_size})")
-            print(f"   Generating new tokenizer with vocab_size={required_vocab_size}...")
-            tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=required_vocab_size)
-            print(f"   ✓ Generated tokenizer with vocab_size={tokenizer.vocab_size}")
+            # CRITICAL MISMATCH - check if local tokenizer exists
+            local_tokenizer_path = Path(__file__).parent / "tokenizer" / "pixel_tokenizer.model"
+            if local_tokenizer_path.exists() and Path(__file__).parent.exists():
+                try:
+                    local_tok = PixelTokenizer.load(str(local_tokenizer_path))
+                    print(f"⚠️  HF tokenizer vocab ({hf_tokenizer_temp.vocab_size}) != checkpoint requires ({required_vocab_size})")
+                    if local_tok.vocab_size == required_vocab_size:
+                        print(f"   Local tokenizer matches! Using it: vocab_size={local_tok.vocab_size}")
+                        tokenizer = local_tok
+                    else:
+                        print(f"   Local tokenizer vocab ({local_tok.vocab_size}) also doesn't match")
+                        print(f"   Generating new tokenizer with vocab_size={required_vocab_size}...")
+                        tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=required_vocab_size)
+                        print(f"   ✓ Generated tokenizer with vocab_size={tokenizer.vocab_size}")
+                except Exception as e:
+                    print(f"   Could not load local tokenizer: {e}")
+                    print(f"   Generating new tokenizer with vocab_size={required_vocab_size}...")
+                    tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=required_vocab_size)
+                    print(f"   ✓ Generated tokenizer with vocab_size={tokenizer.vocab_size}")
+            else:
+                # No local tokenizer, generate one
+                print(f"⚠️  HF tokenizer vocab ({hf_tokenizer_temp.vocab_size}) != checkpoint requires ({required_vocab_size})")
+                print(f"   Generating new tokenizer with vocab_size={required_vocab_size}...")
+                tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=required_vocab_size)
+                print(f"   ✓ Generated tokenizer with vocab_size={tokenizer.vocab_size}")
     else:
         # No HF tokenizer, generate local one
         tokenizer = ensure_tokenizer(data_paths=[data_path], vocab_size=required_vocab_size)
