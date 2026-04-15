@@ -92,6 +92,8 @@ python infer.py --prompt "Explain gradient checkpointing."
 python infer.py --size 1b --max-tokens 128
 python infer.py --model checkpoints/pixel_100m/latest.pt --temperature 0 --top-p 1.0
 python infer.py --mode code --prompt "Write a Python function that parses CSV."
+# Model call from hugging face 
+python infer.py --model sage002/pixel --prompt "hi"
 ```
 
 Arguments:
