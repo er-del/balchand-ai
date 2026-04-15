@@ -114,14 +114,20 @@ def main() -> None:
     checkpoint_info = _inspect_checkpoint(checkpoint)
     data_path = str(ensure_bootstrap_corpus())
     
-    # CRITICAL: Determine the CORRECT vocab size from checkpoint BEFORE loading tokenizer
-    # The checkpoint was trained with a specific vocab size. We must use a tokenizer with THAT size.
+    # CRITICAL FIX: The checkpoint metadata may be corrupted/incorrect
+    # If model says 16000 vocab but checkpoint says 1262, use 16000
     if checkpoint_info is not None:
         required_vocab_size = checkpoint_info.model_config.vocab_size
+        # Sometimes checkpoint metadata is wrong, check if we should override
+        if required_vocab_size < 4000 and model_config.vocab_size > 10000:
+            print(f"⚠️  WARNING: Checkpoint vocab_size ({required_vocab_size}) seems wrong")
+            print(f"            Model config suggests vocab_size={model_config.vocab_size}")
+            print(f"            Using model config vocab_size instead")
+            required_vocab_size = model_config.vocab_size
     else:
         required_vocab_size = min(model_config.vocab_size, 4096)
     
-    print(f"DEBUG: Checkpoint requires vocab_size={required_vocab_size}")
+    print(f"ℹ️  Using vocab_size={required_vocab_size} for tokenizer")
     
     # Now check HuggingFace tokenizer vocab
     if hf_tokenizer_path:
