@@ -65,3 +65,7 @@ tokenizer/bootstrap_corpus.txt
 # Alternative cache locations
 .cache/
 .wandb/
+
+# Local cloned repositories
+pixel/
+pixel-*/
