@@ -14,12 +14,17 @@ from inference.generator import PixelGenerator
 from tokenizer.manager import ensure_tokenizer
 from training.bootstrap import ensure_bootstrap_corpus
 
+try:
+    from huggingface_hub import hf_hub_download
+except ImportError:
+    hf_hub_download = None
+
 
 def build_argparser() -> argparse.ArgumentParser:
     """Build the PIXEL inference CLI."""
     parser = argparse.ArgumentParser(description="Run inference with a PIXEL model.")
     parser.add_argument("--prompt", default="Write a short paragraph about reliable local AI tooling.", help="Prompt text to generate from.")
-    parser.add_argument("--model", default=None, help="Checkpoint file or directory to load.")
+    parser.add_argument("--model", default=None, help="Checkpoint file, directory, or HuggingFace Hub model ID (e.g., sage002/pixel).")
     parser.add_argument(
         "--size",
         default="100m",
@@ -31,6 +36,36 @@ def build_argparser() -> argparse.ArgumentParser:
     parser.add_argument("--top-p", type=float, default=0.95, help="Nucleus sampling cutoff.")
     parser.add_argument("--mode", default="chat", choices=["chat", "completion", "summarize", "code"], help="Inference UI mode.")
     return parser
+
+
+def _is_hf_model_id(model_str: str) -> bool:
+    """Check if string is a HuggingFace Hub model ID (format: org/repo)."""
+    if not model_str or "/" not in model_str:
+        return False
+    # If it's already a local path, return False
+    if Path(model_str).exists():
+        return False
+    # HuggingFace IDs have exactly one or two slashes
+    parts = model_str.split("/")
+    return len(parts) in (2, 3)
+
+
+def _download_hf_model(hf_model_id: str) -> str:
+    """Download a model from HuggingFace Hub and return local checkpoint path."""
+    if hf_hub_download is None:
+        raise ImportError(
+            f"HuggingFace Hub model ID detected ({hf_model_id}), but huggingface_hub is not installed. "
+            "Install it with: pip install huggingface_hub"
+        )
+    
+    print(f"📥 Downloading model from HuggingFace Hub: {hf_model_id}")
+    checkpoint_path = hf_hub_download(
+        repo_id=hf_model_id,
+        filename="latest.pt",
+        repo_type="model"
+    )
+    print(f"✓ Model downloaded to: {checkpoint_path}")
+    return checkpoint_path
 
 
 def _latest_checkpoint() -> str | None:
@@ -54,7 +89,13 @@ def main() -> None:
     """Run PIXEL inference from the command line."""
     args = build_argparser().parse_args()
     model_config, _ = get_preset(args.size)
-    checkpoint = args.model or _latest_checkpoint()
+    
+    # Handle HuggingFace Hub model IDs
+    checkpoint = args.model
+    if checkpoint and _is_hf_model_id(checkpoint):
+        checkpoint = _download_hf_model(checkpoint)
+    
+    checkpoint = checkpoint or _latest_checkpoint()
     checkpoint_info = _inspect_checkpoint(checkpoint)
     data_path = str(ensure_bootstrap_corpus())
     tokenizer_vocab = checkpoint_info.model_config.vocab_size if checkpoint_info is not None else min(model_config.vocab_size, 4096)
